@@ -108,7 +108,7 @@ const TaskList = () => {
           <table className="table table-bordered">
             <thead>
               <tr>
-                <th>Task Type</th>
+                <th>Task Keyword</th>
                 <th>Count</th>
                 <th>URL</th>
                 <th>Status</th>
@@ -119,7 +119,7 @@ const TaskList = () => {
             <tbody>
               {tasks?.data?.tasks?.map((task) => (
                 <tr key={task.id}>
-                  <td>{task?.type}</td>
+                  <td>{task?.keyword}</td>
                   <td>{task?.count}</td>
                   <td>
                     <small>{task?.url}</small>

@@ -8,16 +8,6 @@ import { fetchProfileList } from "@/features/homepage/homepageSlice";
 
 const animatedComponents = makeAnimated(); // Initialize animated components
 
-// Options for react-select
-const actionOptions = [
-  { value: "upvote", label: "Upvote" },
-  { value: "comment", label: "Comment" },
-  { value: "downvote", label: "Downvote" },
-  { value: "post", label: "Post" },
-  { value: "commentUpvote", label: "Comment Upvote" },
-  { value: "commentDownvote", label: "Comment Downvote" },
-  { value: "subscribeAllowed", label: "Subscribe Allowed" },
-];
 
 const AddProfileForm = () => {
   const dispatch = useDispatch();
@@ -28,20 +18,7 @@ const AddProfileForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = {
-      browserId,
-      commentAllowed: actions.some((action) => action.value === "comment"),
-      downvoteAllowed: actions.some((action) => action.value === "downvote"),
-      upvoteAllowed: actions.some((action) => action.value === "upvote"),
-      postAllowed: actions.some((action) => action.value === "post"),
-      commentUpvoteAllowed: actions.some(
-        (action) => action.value === "commentUpvote"
-      ),
-      commentDownvoteAllowed: actions.some(
-        (action) => action.value === "commentDownvote"
-      ),
-      subscribeAllowed: actions.some(
-        (action) => action.value === "subscribeAllowed"
-      ),
+      browserId
     };
 
     try {
@@ -77,20 +54,6 @@ const AddProfileForm = () => {
             />
           </div>
 
-          {/* Actions (Multi-select with Animation) */}
-          <div className="mb-3">
-            <label>Actions:</label>
-            <Select
-              isMulti
-              components={animatedComponents}
-              closeMenuOnSelect={false}
-              options={actionOptions}
-              value={actions}
-              onChange={setActions}
-              placeholder="Select actions"
-              className="form-control"
-            />
-          </div>
 
           {/* Submit Button */}
           <button disabled={loading} type="submit" className="btn btn-primary">

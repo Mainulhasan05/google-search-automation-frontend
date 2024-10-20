@@ -139,12 +139,7 @@ const ProfileLists = () => {
             <thead>
               <tr>
                 <th>Browser ID</th>
-                <th>Upvote Allowed</th>
-                <th>Downvote Allowed</th>
-                <th>Comment Allowed</th>
-                <th>Comment Upvote Allowed</th>
-                <th>Post Allowed</th>
-                <th>Subscribe Allowed</th>
+                
                 <th>Action</th>
               </tr>
             </thead>
@@ -155,12 +150,7 @@ const ProfileLists = () => {
                     {editProfileId === profile.id ? (
                       <>
                         <td><input type="text" name="browserId" value={editProfileData.browserId} onChange={handleInputChange} /></td>
-                        <td><input type="checkbox" name="upvoteAllowed" checked={editProfileData.upvoteAllowed} onChange={(e) => handleInputChange({ target: { name: 'upvoteAllowed', value: e.target.checked } })} /></td>
-                        <td><input type="checkbox" name="downvoteAllowed" checked={editProfileData.downvoteAllowed} onChange={(e) => handleInputChange({ target: { name: 'downvoteAllowed', value: e.target.checked } })} /></td>
-                        <td><input type="checkbox" name="commentAllowed" checked={editProfileData.commentAllowed} onChange={(e) => handleInputChange({ target: { name: 'commentAllowed', value: e.target.checked } })} /></td>
-                        <td><input type="checkbox" name="commentUpvoteAllowed" checked={editProfileData.commentUpvoteAllowed} onChange={(e) => handleInputChange({ target: { name: 'commentUpvoteAllowed', value: e.target.checked } })} /></td>
-                        <td><input type="checkbox" name="postAllowed" checked={editProfileData.postAllowed} onChange={(e) => handleInputChange({ target: { name: 'postAllowed', value: e.target.checked } })} /></td>
-                        <td><input type="checkbox" name="subscribeAllowed" checked={editProfileData.subscribeAllowed} onChange={(e) => handleInputChange({ target: { name: 'subscribeAllowed', value: e.target.checked } })} /></td>
+                        
                         <td>
                           <button className="btn btn-success" onClick={handleUpdate}>Save</button>
                           <button className="btn btn-secondary" onClick={() => setEditProfileId(null)}>Cancel</button>
@@ -169,12 +159,6 @@ const ProfileLists = () => {
                     ) : (
                       <>
                         <td>{profile.browserId}</td>
-                        <td>{profile.upvoteAllowed ? <b className="text-success">Yes</b> : <b className="text-danger">No</b>}</td>
-                        <td>{profile.downvoteAllowed ? <b className="text-success">Yes</b> : <b className="text-danger">No</b>}</td>
-                        <td>{profile.commentAllowed ? <b className="text-success">Yes</b> : <b className="text-danger">No</b>}</td>
-                        <td>{profile.commentUpvoteAllowed ? <b className="text-success">Yes</b> : <b className="text-danger">No</b>}</td>
-                        <td>{profile.postAllowed ? <b className="text-success">Yes</b> : <b className="text-danger">No</b>}</td>
-                        <td>{profile.subscribeAllowed ? <b className="text-success">Yes</b> : <b className="text-danger">No</b>}</td>
                         <td>
                           <button className="btn btn-primary" onClick={() => handleEdit(profile)}>Edit</button>
                           <button className="btn btn-danger" onClick={() => handleDelete(profile.id)}>Delete</button>
